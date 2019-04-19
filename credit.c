@@ -9,15 +9,15 @@ int main(void){
     int sum_digit = 0;
     while(x >= 1)
     {
-        digit1 = x / 10 % 10;
-        digit2 = x % 10;
-        if (digit1*2 / 10 == 0)
+        digit1 = x % 10;
+        digit2 = x / 10 % 10;
+        if (digit2*2 / 10 == 0)
         {
-            sum_digit = sum_digit + digit1 * 2 + digit2;   
+            sum_digit = sum_digit + digit2 * 2 + digit1;   
         }
         else
         {
-            sum_digit = sum_digit + digit1 * 2 % 10 + 1 + digit2;
+            sum_digit = sum_digit + digit2 * 2 % 10 + 1 + digit1;
         }
         x = x / 100;
     }
