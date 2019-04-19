@@ -23,6 +23,5 @@ int main(void)
         }
     printf("\n");     
     }
-    return x;
 }
 
