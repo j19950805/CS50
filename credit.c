@@ -33,7 +33,7 @@ int main(void){
     {
         printf("AMEX\n");
     }
-    else if(z/100 < 55 && z/100 > 51)
+    else if(z/100 < 99 && z/100 > 9)
     {
         printf("MASTERCARD\n");
     }
