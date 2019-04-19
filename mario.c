@@ -3,24 +3,23 @@
 
 int main(void)
 {
-    int x;
+    int x,i,j,k;
     do{
     x = get_int("Height:");
     }
     while(x>8 || x<=0);
-    int i,j,k;
     for(i=0; i<x; i++)
     {
-        for(k=x-i ; k>0; k--)
+        for(k=x ; k>i+1; k--)
         {
         printf(" ");    
         }
-        for(j=0; j<=i; j++)
+        for(j=0; j<i+1; j++)
         {
         printf("#");    
         }
         printf("  ");
-        for(j=0; j<=i; j++)
+        for(j=0; j<i+1; j++)
         {
         printf("#");    
         }
