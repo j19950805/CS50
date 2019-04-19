@@ -8,7 +8,7 @@ int main(void){
     int digit1, digit2;
     int sum_digit1 = 0;
     int sum_digit2 = 0;
-    while(x > 1)
+    while(x >= 1)
     {
         digit1 = x / 10 % 10;
         if (digit1*2 / 10 == 0)
