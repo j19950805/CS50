@@ -3,14 +3,14 @@
 #include <math.h>
 
 int main(void){
-    float dollars;
+    float x;
     do
-    {
-    dollars = get_float("Change owed:");
-    }
-    while(dollars<0);
-    int cents = round(dollars*100);
-    int change = cents/25 + cents%25/10 + cents%25%10/5 + cents%25%10%5;
-    printf("%i\n", change);
+      {
+      x = get_float("Change owed:");
+      }
+    while(x<0);
+    int y = round(x*100);
+    int z = y/25 + y%25/10 + y%25%10/5 + y%25%10%5;
+    printf("%i\n", z);
 }
     
