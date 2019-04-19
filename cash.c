@@ -9,11 +9,11 @@ int main(void){
     {
         dollars = get_float("Change owed:");
     }
-    while(dollars < 0);
+    while (dollars < 0);
     // Change dollars to cents
-    int cents = round(dollars*100);
+    int cents = round(dollars * 100);
     // Calculate how many coins do customer get back and print the result
-    int cash = cents/25 + cents%25/10 + cents%25%10/5 + cents%25%10%5;
+    int cash = cents / 25 + cents % 25 / 10 + cents % 25 % 10 / 5 + cents % 25 % 10 % 5;
     printf("%i\n", cash);
 }
     
