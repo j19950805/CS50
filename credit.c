@@ -21,23 +21,17 @@ int main(void){
         x = x / 100;
     }
     
-    if(sum_digit % 10 == 0){
-        if(y / 10 == 34 || y / 10 == 37)
-        {
-            printf("AMEX\n");
-        }
-        else if(y / 100 < 99 && y / 100 > 9)
-        {
-            printf("MASTERCARD\n");
-        }
-        else if(y / 1000 == 4 || y == 4)
-        {
+    if(sum_digit % 10 == 0 && (y / 10 == 34 || y / 10 == 37))
+    {
+        printf("AMEX\n");
+    }
+    else if(sum_digit % 10 == 0 && (y / 100 < 99 && y / 100 > 9))
+    {
+        printf("MASTERCARD\n");
+    }
+    else if(sum_digit % 10 == 0 && (y / 1000 == 4 || y == 4))
+    {
             printf("VISA\n");
-        }
-        else
-        {
-            printf("INVALID\n");
-        }
     }
     else
     {
