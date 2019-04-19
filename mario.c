@@ -3,19 +3,21 @@
 
 int main(void)
 {
-    int x,i,j,k;
+    int x;
+    // Ensure x is between 1 & 8
     do {
         x = get_int("Height:");
-    } while(x>8 || x<=0);
-    for(i=0; i<x; i++) {
-        for(k=x ; k>i+1; k--) {
+    } while(x > 8 || x <= 0);
+    // Print pyramid
+    for(int i=0; i < x; i++) {
+        for(int j=x ; j > i+1; j--) {
             printf(" ");    
         }
-        for(j=0; j<i+1; j++) {
+        for(int k=0; k < i+1; k++) {
             printf("#");    
         }
         printf("  ");
-        for(j=0; j<i+1; j++) {
+        for(int k=0; k < i+1; k++) {
             printf("#");    
         }
         printf("\n");    
