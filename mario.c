@@ -6,8 +6,8 @@ int main(void)
     int x,i,j,k;
     do
     {
-    x = get_int("Height:");
-    }
+        x = get_int("Height:");
+    } 
     while(x>8 || x<=0);
     for (i=0; i<x; i++)
     {
