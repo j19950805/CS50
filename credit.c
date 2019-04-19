@@ -4,13 +4,12 @@
 
 int main(void){
     long x = get_long("Number:");
-    int y = x / pow(10,12);
-    int digit1, digit2;
+    int y = round(x / pow(10,12));
     int sum_digit = 0;
     while(x >= 1)
     {
-        digit1 = x % 10;
-        digit2 = x / 10 % 10;
+        int digit1 = x % 10;
+        int digit2 = x / 10 % 10;
         if (digit2*2 / 10 == 0)
         {
             sum_digit = sum_digit + digit2 * 2 + digit1;   
