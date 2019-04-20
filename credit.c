@@ -22,7 +22,7 @@ int main(void)
         x = x / 100;
     }
     
-    if (sum_digit % 10 == 0)
+    if (sum_digit % 10 != 0)
     {
         printf("INVALID\n");
     }
