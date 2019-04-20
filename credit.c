@@ -5,7 +5,7 @@
 int main(void)
 {
     long x = get_long("Number:");
-    int y = round(x / pow(10, 12));
+    int y = x / pow(10, 12);
     int sum_digit = 0;
     while (x >= 1)
     {
