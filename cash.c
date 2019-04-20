@@ -2,7 +2,8 @@
 #include <cs50.h>
 #include <math.h>
 
-int main(void){
+int main(void)
+{
     float dollars;
     // Check if x is a non-negative real number
     do
