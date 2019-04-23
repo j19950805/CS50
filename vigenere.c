@@ -26,7 +26,7 @@ int main(int argc, string argv[])
             else
             {
                 i = key_length;
-                printf("invalid keyword\n");
+                printf("Usage: ./vigenere keyword\n");
                 return 0;
             }
         }
