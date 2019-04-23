@@ -1,7 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <ctype.h>
-#include <string.h>
 
 int main(int argc, string argv[])
 {
@@ -13,14 +12,14 @@ int main(int argc, string argv[])
         int i = 0;
         while (pt[i] != 0)
         {
-            if ((islower(pt[i]) && pt[i] + key > 'z') || (isupper(pt[i]) && pt[i] + key > 'Z'))
+            if (islower(pt[i]))
             {
-                printf("%c", pt[i] + key - 26);
+                printf("%c", 'a' + (pt[i] -'a' + key) % 26);
+            }    
+            else if(isupper(pt[i]))
+            {
+                printf("%c", 'A' + (pt[i] -'A' + key) % 26);
             }
-            else if (islower(pt[i]) || isupper(pt[i]))
-            {
-                printf("%c", pt[i] + key);    
-            }      
             else
             {
                 printf("%c", pt[i]);
