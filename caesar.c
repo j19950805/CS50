@@ -8,7 +8,7 @@ int main(int argc, string argv[])
     int key = (atoi(argv[1])) % 26;
     if (argc == 2 && key > 0)
     {
-        string pt = get_string("plaintext: ");
+        string pt = get_string("plaintext:  ");
         printf("ciphertext: ");
         int i = 0;
         while (pt[i] != 0)
@@ -40,11 +40,11 @@ int main(int argc, string argv[])
                 printf("%c", pt[i]);
             }
             i++;
-        }    
+        }
+        printf("\n");
     }
     else
     {
-        printf("Usage: ./caesar key");    
+        printf("Usage: ./caesar key\n");    
     }
-    printf("\n");
 }
