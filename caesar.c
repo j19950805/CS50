@@ -5,9 +5,9 @@
 
 int main(int argc, string argv[])
 {
-    int key = (atoi(argv[1])) % 26;
-    if (argc == 2 && key > 0)
+    if (argc == 2 && isdigit(*argv[1]))
     {
+        int key = (atoi(argv[1])) % 26;
         string pt = get_string("plaintext:  ");
         printf("ciphertext: ");
         int i = 0;
