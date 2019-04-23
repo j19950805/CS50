@@ -4,7 +4,12 @@
 
 int main(void)
 {
-    long x = get_long("Number:");
+    long x;
+    do 
+    {
+        x = get_long("Number:"); 
+    }
+    while (x <= 0);
     int y = x / pow(10, 12);
     int sum_digit = 0;
     while (x >= 1)
