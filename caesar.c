@@ -13,28 +13,14 @@ int main(int argc, string argv[])
         int i = 0;
         while (pt[i] != 0)
         {
-            if (islower(pt[i]))
+            if ((islower(pt[i]) && pt[i] + key > 'z') || (isupper(pt[i]) && pt[i] + key > 'Z'))
             {
-                if (pt[i] + key > 'z')
-                {
-                    printf("%c", pt[i] + key - 26);
-                }
-                else
-                {
-                    printf("%c", pt[i] + key);    
-                }      
+                printf("%c", pt[i] + key - 26);
             }
-            else if (isupper(pt[i]))
+            else if (islower(pt[i]) || isupper(pt[i]))
             {
-                if (pt[i] + key > 'Z')
-                {
-                    printf("%c", pt[i] + key - 26);
-                }
-                else
-                {
-                    printf("%c", pt[i] + key);    
-                }
-            }
+                printf("%c", pt[i] + key);    
+            }      
             else
             {
                 printf("%c", pt[i]);
