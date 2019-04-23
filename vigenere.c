@@ -3,10 +3,11 @@
 #include <ctype.h>
 #include <string.h>
 
+bool isword(string word);
 int main(int argc, string argv[])
 {
     
-    if (argc == 2)
+    if (argc == 2 && isword(argv[1]))
     {
         int key_length = strlen(argv[1]);
         int key[key_length];
@@ -15,20 +16,13 @@ int main(int argc, string argv[])
         {
             if (isupper(argv[1][i]))
             {
-                key[i] = (argv[1][i] - 'A');    
-                i++;               
-            }
-            else if (islower(argv[1][i]))
-            {
-                key[i] = (argv[1][i] - 'a');
-                i++;
+                key[i] = (argv[1][i] - 'A');                   
             }
             else
             {
-                i = key_length;
-                printf("Usage: ./vigenere keyword\n");
-                return 0;
+                key[i] = (argv[1][i] - 'a'); 
             }
+            i++;
         }
         string pt = get_string("plaintext:  ");
         printf("ciphertext: ");
@@ -59,4 +53,20 @@ int main(int argc, string argv[])
         printf("Usage: ./vigenere keyword\n");    
     }
 }
-    
+
+bool isword(string word)
+{
+    int i = 0;
+    while (word[i] != 0)
+    {
+        if(isalpha(word[i]))
+        {
+            i++;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    return 1;
+}    
