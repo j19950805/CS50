@@ -4,12 +4,7 @@
 
 int main(void)
 {
-    long x;
-    do 
-    {
-        x = get_long("Number:"); 
-    }
-    while (x <= 0);
+    long x = get_long("Number:"); 
     int y = x / pow(10, 12);
     int sum_digit = 0;
     while (x >= 1)
@@ -35,7 +30,7 @@ int main(void)
     {
         printf("AMEX\n");
     }
-    else if (y / 100 < 99 && y / 100 > 9)
+    else if (y / 100 <= 99 && y / 100 > 9)
     {
         printf("MASTERCARD\n");
     }
