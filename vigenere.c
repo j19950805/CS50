@@ -59,7 +59,7 @@ bool isword(string word)
     int i = 0;
     while (word[i] != 0)
     {
-        if(isalpha (word[i]))
+        if (isalpha(word[i]))
         {
             i++;
         }
