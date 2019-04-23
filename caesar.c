@@ -14,11 +14,11 @@ int main(int argc, string argv[])
         {
             if (islower(pt[i]))
             {
-                printf("%c", 'a' + (pt[i] -'a' + key) % 26);
+                printf("%c", 'a' + (pt[i] - 'a' + key) % 26);
             }    
-            else if(isupper(pt[i]))
+            else if (isupper(pt[i]))
             {
-                printf("%c", 'A' + (pt[i] -'A' + key) % 26);
+                printf("%c", 'A' + (pt[i] - 'A' + key) % 26);
             }
             else
             {
