@@ -10,8 +10,7 @@ int main(int argc, string argv[])
     {
         int key_length = strlen(argv[1]);
         int key[key_length];
-        int i = 0;
-        while (argv[1][i] != 0)
+        for (int i = 0; i < key_length ; i++)
         {
             if (isupper(argv[1][i]))
             {
@@ -21,14 +20,12 @@ int main(int argc, string argv[])
             {
                 key[i] = (argv[1][i] - 'a'); 
             }
-            i++;
         }
         string pt = get_string("plaintext:  ");
         printf("ciphertext: ");
-        int j = 0;
         int k = 0;
-        while (pt[j] != 0)
-        {
+        for (int j = 0; j < strlen(pt); j++)
+        { 
             if (islower(pt[j]))
             {
                 printf("%c", 'a' + (pt[j] - 'a' + key[k % key_length]) % 26);
@@ -42,7 +39,6 @@ int main(int argc, string argv[])
                 printf("%c", pt[j]);
                 k--;
             }
-            j++;
             k++;
         }
         printf("\n");    
@@ -56,14 +52,9 @@ int main(int argc, string argv[])
 
 bool isword(string word)
 {
-    int i = 0;
-    while (word[i] != 0)
+    for (int i = 0; i < strlen(word); i++)
     {
-        if (isalpha(word[i]))
-        {
-            i++;
-        }
-        else
+        if (!isalpha(word[i]))
         {
             return 0;
         }
