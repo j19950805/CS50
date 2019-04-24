@@ -1,10 +1,12 @@
 #include <cs50.h>
 #include <stdio.h>
 #include <ctype.h>
+#include <string.h>
 
+bool isnum(string num);
 int main(int argc, string argv[])
 {
-    if (argc == 2 && isdigit(*argv[1]))
+    if (argc == 2 && isnum(argv[1]))
     {
         int key = (atoi(argv[1])) % 26;
         string pt = get_string("plaintext:  ");
@@ -33,4 +35,15 @@ int main(int argc, string argv[])
         printf("Usage: ./caesar key\n");
         return 1;
     }
+}
+bool isnum(string num)
+{
+    for (int i = 0; i < strlen(num); i++)
+    {
+        if (!isdigit(num[i]))
+        {
+            return 0;
+        }
+    }
+    return 1;
 }
