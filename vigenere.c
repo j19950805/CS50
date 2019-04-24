@@ -5,8 +5,7 @@
 
 bool isword(string word);
 int main(int argc, string argv[])
-{
-    
+{    
     if (argc == 2 && isword(argv[1]))
     {
         int key_length = strlen(argv[1]);
@@ -50,7 +49,8 @@ int main(int argc, string argv[])
     }
     else
     {
-        printf("Usage: ./vigenere keyword\n");    
+        printf("Usage: ./vigenere keyword\n");
+        return 1;
     }
 }
 
