@@ -23,8 +23,7 @@ int main(int argc, string argv[])
         }
         string pt = get_string("plaintext:  ");
         printf("ciphertext: ");
-        int k = 0;
-        for (int j = 0; j < strlen(pt); j++)
+        for (int j = 0, k =0, n = strlen(pt); j < n; j++, k++)
         { 
             if (islower(pt[j]))
             {
@@ -39,9 +38,9 @@ int main(int argc, string argv[])
                 printf("%c", pt[j]);
                 k--;
             }
-            k++;
         }
-        printf("\n");    
+        printf("\n");
+        return 0;
     }
     else
     {
