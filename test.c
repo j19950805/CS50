@@ -7,5 +7,5 @@ int main(void)
     string x = get_string("password:");
     const char *salt = "50";
     const char *z = crypt(x , salt);
-    printf("%s", z);
+    printf("%s\n", z);
 }

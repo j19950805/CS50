@@ -12,7 +12,7 @@ int main(int argc, string argv[])
         strncpy(a, argv[1], 2);
         const char *salt = a;
         
-        char key[6] = "";
+        char key[5] = "";
         //test one-charaters
         for (key[0] = 'A'; key[0]  <= 'z'; key[0]++)
         {
