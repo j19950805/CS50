@@ -12,7 +12,7 @@ int main(int argc, string argv[])
         strncpy(a, argv[1], 2);
         const char *salt = a;
         
-        char key[5] = "";
+        char key[6] = "";
         //test one-charaters
         for (key[0] = 'A'; key[0]  <= 'z'; key[0]++)
         {
@@ -78,7 +78,7 @@ int main(int argc, string argv[])
         }
         //test four-charaters
         for (key[0] = 'A'; key[0]  <= 'z'; key[0]++)
-        {
+        { 
             for (key[1] = 'A'; key[1]  <= 'z'; key[1]++)
             {
                 for (key[2] = 'A'; key[2]  <= 'z'; key[2]++)
@@ -114,6 +114,7 @@ int main(int argc, string argv[])
         //test five-charaters
         for (key[0] = 'A'; key[0]  <= 'z'; key[0]++)
         {
+            printf("Processing: %s\n", key);
             for (key[1] = 'A'; key[1]  <= 'z'; key[1]++)
             {
                 for (key[2] = 'A'; key[2]  <= 'z'; key[2]++)
@@ -132,7 +133,7 @@ int main(int argc, string argv[])
                             {
                                 key[4] = 'a' - 1;
                             }
-                            if (key[4] == 'z')
+                            if (strcmp(key, "zzzzz") == 0)
                             {
                                 printf("Usage: ./crack hash\n");
                                 return 1;
