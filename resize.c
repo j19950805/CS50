@@ -109,9 +109,9 @@ int main(int argc, char *argv[])
         vertical++;
 
         // Go back to startpoint
-        if(vertical < n)
+        if (vertical < n)
         {
-            fseek(inptr, - sizeof(RGBTRIPLE) * originwidth , SEEK_CUR);
+            fseek(inptr, - sizeof(RGBTRIPLE) * originwidth, SEEK_CUR);
         }
         else
         {
