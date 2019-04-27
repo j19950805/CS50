@@ -66,6 +66,7 @@ int main(int argc, char *argv[])
 
     // Change width and height value in HEADER
     int originwidth = bi.biWidth;
+    int originHeight = abs(bi.biHeight);
     bi.biWidth *= n;
     bi.biHeight *= n;
 
@@ -74,7 +75,8 @@ int main(int argc, char *argv[])
 
     // Change size value in HEADER
     bi.biSizeImage = (sizeof(RGBTRIPLE) * bi.biWidth + padding_2) * abs(bi.biHeight);
-    bf.bfSize = 54 + bi.biSizeImage;
+    bf.bfSize = sizeof(BITMAPFILEHEADER) + sizeof(BITMAPINFOHEADER) + bi.biSizeImage;
+    printf("biSizeImage:%i, bfSize:%i\n", bi.biSizeImage, bf.bfSize);
 
     // write outfile's BITMAPFILEHEADER
     fwrite(&bf, sizeof(BITMAPFILEHEADER), 1, outptr);
@@ -85,7 +87,7 @@ int main(int argc, char *argv[])
 
 
     // iterate over infile's scanlines
-    for (int i = 0, biHeight = abs(bi.biHeight); i < biHeight; i++)
+    for (int i = 0; i < originHeight; i++)
     {
         // resize vertically
         for (int j = 0; j < n; j++)
@@ -120,6 +122,7 @@ int main(int argc, char *argv[])
         fseek(inptr, originwidth * 3 + padding_1, SEEK_CUR);
 
     }
+    printf("biSizeImage:%i, bfSize:%i\n", bi.biSizeImage, bf.bfSize);
 
     // close infile
     fclose(inptr);
