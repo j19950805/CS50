@@ -93,7 +93,7 @@ int main(int argc, char *argv[])
         if (ceil(f * i + f) - ceil(f * i) == 0)
         {
             fseek(inptr, sizeof(RGBTRIPLE) * originwidth + padding_1, SEEK_CUR);
-            i++;
+            continue;
         }
 
         // iterate over pixels in scanline and resize horizontally
