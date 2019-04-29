@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
     // determine original padding for scanlines
     int padding_1 = (4 - (bi.biWidth * sizeof(RGBTRIPLE)) % 4) % 4;
 
-    // Change width and height value in HEADER
+    // Change width and height value in HEADER and save the original value
     int originwidth = bi.biWidth;
     int originheight = abs(bi.biHeight);
 
@@ -85,11 +85,11 @@ int main(int argc, char *argv[])
     // write outfile's BITMAPINFOHEADER
     fwrite(&bi, sizeof(BITMAPINFOHEADER), 1, outptr);
 
-    int vertical = 0;
 
     // iterate over infile's scanlines
-    for (int i = 0; i < originheight; i++)
+    for (int i = 0, v_resize_count = 0; i < originheight; i++)
     {
+        // skip some scanlines when shrinking an image
         if (ceil(f * i + f) - ceil(f * i) == 0)
         {
             fseek(inptr, sizeof(RGBTRIPLE) * originwidth + padding_1, SEEK_CUR);
@@ -106,33 +106,36 @@ int main(int argc, char *argv[])
             fread(&triple, sizeof(RGBTRIPLE), 1, inptr);
 
             // write RGB triple to outfile and resize horizontally
-            for (int l = 0; l < ceil(f * j + f) - ceil(f * j); l++)
+            for (int k = 0; k < ceil(f * j + f) - ceil(f * j); k++)
             {
                 fwrite(&triple, sizeof(RGBTRIPLE), 1, outptr);
             }
         }
 
-        vertical++;
+        v_resize_count++;
 
-        // Go back to startpoint
-        if (vertical < ceil(f * i + f) - ceil(f * i))
+        // Add padding to output image
+        for (int l = 0; l < padding_2; l++)
         {
+            fputc(0x00, outptr);
+        }
+
+
+        // Check if we need to copy the scanline again
+        if (v_resize_count < ceil(f * i + f) - ceil(f * i))
+        {
+            // Go back to startpoint and copy the scanline again
             fseek(inptr, - sizeof(RGBTRIPLE) * originwidth, SEEK_CUR);
             i--;
         }
         else
         {
-            vertical = 0;
-            // skip over padding, if any
+            // skip over padding in input file , if any
             fseek(inptr, padding_1, SEEK_CUR);
+            // Set counter for next scanline
+            v_resize_count = 0;
         }
 
-
-        // Add padding back (to demonstrate how)
-        for (int k = 0; k < padding_2; k++)
-        {
-            fputc(0x00, outptr);
-        }
     }
 
     // close infile
