@@ -66,7 +66,7 @@ bool load(const char *dictionary)
             }
             else if (isalpha(word[0]) == false)
             {
-                continue;
+                break;
             }
             else
             {
