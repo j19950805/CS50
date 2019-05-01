@@ -11,7 +11,7 @@
 
 // Represents number of buckets in a hash table
 #define N 26
-int *SIZE = NULL;
+int size_dictionary = 0;
 // Represents a node in a hash table
 typedef struct node
 {
@@ -32,7 +32,6 @@ unsigned int hash(const char *word)
 // Loads dictionary into memory, returning true if successful else false
 bool load(const char *dictionary)
 {
-    SIZE = malloc(sizeof(int));
     // Initialize hash table
     for (int i = 0; i < N; i++)
     {
@@ -52,7 +51,6 @@ bool load(const char *dictionary)
 
 
     // Insert words into hash table
-    int s = 0;
     while (fscanf(file, "%s", word) != EOF)
     {
         int first_letter = hash(word);
@@ -66,9 +64,8 @@ bool load(const char *dictionary)
         strcpy(new_node->word, word);
         new_node->next = hashtable[first_letter];
         hashtable[first_letter] = new_node;
-        s++;
+        size_dictionary++;
     }
-    *SIZE = s;
     // Close dictionary
     fclose(file);
 
@@ -79,9 +76,9 @@ bool load(const char *dictionary)
 // Returns number of words in dictionary if loaded else 0 if not yet loaded
 unsigned int size(void)
 {
-    if (*SIZE > 0)
+    if (size_dictionary > 0)
     {
-        return *SIZE;
+        return size_dictionary;
 
     }
     else
@@ -109,7 +106,7 @@ bool check(const char *word)
 // Unloads dictionary from memory, returning true if successful else false
 bool unload(void)
 {
-    free(SIZE);
+    size_dictionary = 0;
     for (int i = 0; i < N; i++)
     {
         node *cursor = hashtable[i];
