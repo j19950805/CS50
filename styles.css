@@ -1,0 +1,53 @@
+/* Header style */
+#header
+{
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 52px;
+  background-color: MediumSeaGreen;
+  height: 100px;
+}
+/* Sidebar style */
+#menu
+{
+  background-color: Orange;
+  height: 100%;
+  Width: 300px;
+  position: fixed!important;
+  overflow: auto;
+}
+/* Main Page style */
+#welcome
+{
+  background-color: AntiqueWhite ;
+  margin-left:300px;
+  position: fixed!important;
+  overflow: auto;
+  Height:100%;
+  Width:100%;
+  font-size: 36px;
+}
+/* Sidebar item style */
+ul
+{
+    font-size: 32px;
+    font-weight: bold;
+ }
+/* Table styles */
+table
+{
+    border: 5px solid Red;
+}
+tr
+{
+    height:50px;
+}
+td
+{
+  background-color: Black;
+  color: White;
+  Width:400px;
+  margin:5px;
+
+}
