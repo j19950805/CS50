@@ -14,12 +14,14 @@ for i in argv[1]:
 pt = get_string("plaintext:  ")
 print("ciphertext: ", end="")
 
-length_pt = len(pt)
-for j, k in zip(pt, range(length_pt)):
+k = 0
+for j in pt:
     if j.islower():
         print(chr(97 + (ord(j) - 97 + key[k % len(key)]) % 26), end="")
     elif j.isupper():
         print(chr(65 + (ord(j) - 65 + key[k % len(key)]) % 26), end="")
     else:
+        k -= 1
         print(j, end="")
+    k += 1
 print()
