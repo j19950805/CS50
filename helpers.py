@@ -39,4 +39,4 @@ def substrings(a, b, n):
             for i in range(len(word) - n):
                 substrings_b.add(word[i:i + n])
 
-    return list(substrings_a & substrings_b)style50
+    return list(substrings_a & substrings_b)
