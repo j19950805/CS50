@@ -3,19 +3,14 @@ from nltk.tokenize import sent_tokenize
 
 def lines(a, b):
     """Return lines in both a and b"""
-    lines_a = set(a.splitlines())
-    lines_b = set(b.splitlines())
 
-    return list(lines_a & lines_b)
+    return list(set(a.splitlines()) & set(b.splitlines()))
 
 
 def sentences(a, b):
     """Return sentences in both a and b"""
 
-    sentences_a = set(sent_tokenize(a))
-    sentences_b = set(sent_tokenize(b))
-
-    return list(sentences_a & sentences_b)
+    return list(set(sent_tokenize(a)) & set(sent_tokenize(b)))
 
 
 def substrings(a, b, n):
